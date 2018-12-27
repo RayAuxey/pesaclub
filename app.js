@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 
 // Connect to database
 mongoose.connect(
-  "mongodb://localhost:27017/pesaclub",
+  // "mongodb://localhost:27017/pesaclub",
+  "mongodb://rayauxey:!1Gaishah@pesaclub-shard-00-00-mk7jy.mongodb.net:27017,pesaclub-shard-00-01-mk7jy.mongodb.net:27017,pesaclub-shard-00-02-mk7jy.mongodb.net:27017/test?ssl=true&replicaSet=Pesaclub-shard-0&authSource=admin&retryWrites=true",
   {
     useNewUrlParser: true
   }
