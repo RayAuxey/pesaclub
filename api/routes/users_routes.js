@@ -9,11 +9,11 @@ router.get("/", UserController.index);
 // Show pesaforms at a level
 router.get("/levels", UserController.levelPesaforms);
 
-// Get a single user
-router.get("/:id", UserController.show);
-
 // Create a user
 router.post("/signup", UserController.create);
+
+// Get a single user
+router.get("/:id", UserController.show);
 
 // Delete a user
 router.delete("/:id", UserController.delete);
