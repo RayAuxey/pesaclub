@@ -13,10 +13,10 @@ router.get("/levels", UserController.levelPesaforms);
 router.post("/signup", UserController.create);
 
 // Get a single user
-router.get("/:id", UserController.show);
+// router.get("/:id", UserController.show);
 
-// Delete a user
-router.delete("/:id", UserController.delete);
+// // Delete a user
+// router.delete("/:id", UserController.delete);
 
 // Find and delete user
 
