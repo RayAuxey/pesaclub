@@ -10,7 +10,7 @@ router.get("/", UserController.index);
 router.get("/levels", UserController.levelPesaforms);
 
 // Create a user
-router.post("/signup", UserController.create);
+router.post("/add", UserController.create);
 
 // Get a single user
 // router.get("/:id", UserController.show);
