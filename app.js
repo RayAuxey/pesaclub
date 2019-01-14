@@ -1,12 +1,14 @@
+require("dotenv").config();
 const app = require("express")();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+const { DB_PASSWORD, DB_URI, DB_USERNAME } = process.env;
 // Connect to database
 mongoose.connect(
   // "mongodb://localhost:27017/pesaclub",
-  "mongodb://rayauxey:!1Gaishah@pesaclub-shard-00-00-mk7jy.mongodb.net:27017,pesaclub-shard-00-01-mk7jy.mongodb.net:27017,pesaclub-shard-00-02-mk7jy.mongodb.net:27017/test?ssl=true&replicaSet=Pesaclub-shard-0&authSource=admin&retryWrites=true",
+  `mongodb://${DB_USERNAME}:${DB_PASSWORD}@${DB_URI}`,
   {
     useNewUrlParser: true
   }
