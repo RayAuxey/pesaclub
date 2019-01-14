@@ -33,8 +33,8 @@ const pesaformRoutes = require("./api/routes/pesaform_routes");
 const usersRoutes = require("./api/routes/users_routes");
 
 // Routes handling
-app.use("/pesaform", pesaformRoutes);
-app.use("/users", usersRoutes);
+app.use("/api/pesaform", pesaformRoutes);
+app.use("/api/users", usersRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
