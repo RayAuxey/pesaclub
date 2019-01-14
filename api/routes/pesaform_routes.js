@@ -1,9 +1,4 @@
 const router = require("express").Router();
-const mongoose = require("mongoose");
-
-// Import Models
-const Pesaform = require("../models/pesaform");
-const User = require("../models/user");
 
 // Import Controllers
 const PesaformController = require("../controllers/pesaform_controller");
