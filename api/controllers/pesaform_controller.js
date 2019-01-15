@@ -25,7 +25,12 @@ class PesaformController {
       })
       .catch(err => console.log(err));
   }
-
+  
+  showOne(req, res) {
+    Pesaform.findOne({})
+      .exec()
+      .then(doc => res.status(200).json(doc))
+  }
   // Show pesaform by Id
   show(req, res) {
     const id = req.params.id;
