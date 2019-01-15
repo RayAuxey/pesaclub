@@ -17,6 +17,8 @@ router.post("/:id", PesaformController.buyPesaform);
 // Get a single pesaform by Id
 router.get("/id/:id", PesaformController.show);
 
+router.get("/one", PesaformController.showOne);
+
 // Get all pesaforms with user at a level
 // router.get("/user/:userId/level/:level", (req, res) => {
 //   const userId = req.params.userId;
