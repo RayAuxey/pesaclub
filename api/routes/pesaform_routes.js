@@ -6,6 +6,8 @@ const PesaformController = require("../controllers/pesaform_controller");
 // Routes
 /*--------------------------------------------------*/
 // Get all pesaforms
+router.get("/one", PesaformController.showOne);
+
 router.get("/:page", PesaformController.index);
 
 // Create the First Pesaform
@@ -17,7 +19,6 @@ router.post("/:id", PesaformController.buyPesaform);
 // Get a single pesaform by Id
 router.get("/id/:id", PesaformController.show);
 
-router.get("/one", PesaformController.showOne);
 
 // Get all pesaforms with user at a level
 // router.get("/user/:userId/level/:level", (req, res) => {
