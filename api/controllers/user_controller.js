@@ -77,6 +77,7 @@ class UserController {
       .then(user => {
         if (user)
           Pesaform.find({ _id: { $in: user.pesaforms[level] } })
+            .select("_id")
             .exec()
             .then(pesaforms => res.status(200).json(pesaforms))
             .catch(err =>
