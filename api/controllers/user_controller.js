@@ -67,29 +67,60 @@ class UserController {
       .catch(err => res.status(500).json(err));
   }
 
-  // Show pesa forms at a level
+  // Show pesaforms at a level
   levelPesaforms(req, res) {
     const userId = req.query.id;
     const level = req.query.level;
-    console.log(req.query);
-    User.findById(userId)
-      .exec()
-      .then(user => {
-        if (user)
-          Pesaform.find({ _id: { $in: user.pesaforms[level] } })
-            .select("_id")
-            .exec()
-            .then(pesaforms => res.status(200).json(pesaforms))
-            .catch(err =>
-              res.status(500).json({
-                error: err
-              })
-            );
-        else
-          res.status(404).json({
-            error: "No such user"
-          });
-      });
+    switch (level) {
+      case "0":
+        Pesaform.find({ level0: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+      case "1":
+        Pesaform.find({ level_1: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+      case "2":
+        Pesaform.find({ level_2: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+      case "3":
+        Pesaform.find({ level_3: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+      case "4":
+        Pesaform.find({ level_4: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+      case "5":
+        Pesaform.find({ level_5: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+      case "6":
+        Pesaform.find({ level_6: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+      case "7":
+        Pesaform.find({ level_7: userId })
+          .exec()
+          .then(docs => res.status(200).json(docs))
+          .catch(err => res.status(404).json(err));
+        break;
+    }
   }
 }
 
