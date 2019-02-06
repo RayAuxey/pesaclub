@@ -73,7 +73,7 @@ class UserController {
     const level = req.query.level;
     switch (level) {
       case "0":
-        Pesaform.find({ level0: userId })
+        Pesaform.find({ level_0: userId })
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
