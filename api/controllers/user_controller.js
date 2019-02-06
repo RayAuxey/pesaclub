@@ -74,42 +74,49 @@ class UserController {
     switch (level) {
       case "0":
         Pesaform.find({ level_0: userId })
+          .populate("user", "name")
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
         break;
       case "1":
         Pesaform.find({ level_1: userId })
+          .populate("user", "name")
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
         break;
       case "2":
         Pesaform.find({ level_2: userId })
+          .populate("user", "name")
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
         break;
       case "3":
         Pesaform.find({ level_3: userId })
+          .populate("user", "name")
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
         break;
       case "4":
         Pesaform.find({ level_4: userId })
+          .populate("user", "name")
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
         break;
       case "5":
         Pesaform.find({ level_5: userId })
+          .populate("user", "name")
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
         break;
       case "6":
         Pesaform.find({ level_6: userId })
+          .populate("user", "name")
           .exec()
           .then(docs => res.status(200).json(docs))
           .catch(err => res.status(404).json(err));
