@@ -47,8 +47,7 @@ class UserController {
         const user = new User({
           name: req.body.name,
           email: req.body.email,
-          password: hash,
-          pesaforms: [[], [], [], [], [], [], [], []]
+          password: hash
         });
         user
           .save()
