@@ -69,8 +69,8 @@ class UserController {
 
   // Show pesaforms at a level
   levelPesaforms(req, res) {
-    const userId = req.query.id;
-    const level = req.query.level;
+    const userId = req.params.user;
+    const level = req.params.level;
     switch (level) {
       case "0":
         Pesaform.find({ level_0: userId })
