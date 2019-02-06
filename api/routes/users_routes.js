@@ -7,7 +7,7 @@ const UserController = require("../controllers/user_controller");
 router.get("/", UserController.index);
 
 // Show pesaforms at a level
-router.get("/level/:level/user/:user", UserController.levelPesaforms);
+router.get("/level/:level/id/:user", UserController.levelPesaforms);
 
 // Create a user
 router.post("/add", UserController.create);
