@@ -10,8 +10,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true
   },
-  password: { type: String, required: true },
-  pesaforms: { type: Mixed, default: [] }
+  password: { type: String, required: true }
 });
 
 module.exports = mongoose.model("User", userSchema);
