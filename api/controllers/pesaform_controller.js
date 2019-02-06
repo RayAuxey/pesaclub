@@ -11,7 +11,14 @@ class PesaformController {
     const perPage = 10;
     Pesaform.find({})
       .skip(perPage * page - perPage)
-      .populate("users", "name")
+      .populate("level_0", "name")
+      .populate("level_1", "name")
+      .populate("level_2", "name")
+      .populate("level_3", "name")
+      .populate("level_4", "name")
+      .populate("level_5", "name")
+      .populate("level_6", "name")
+      .populate("level_7", "name")
       .exec()
       .then(docs => {
         res.status(200).json({
@@ -25,17 +32,24 @@ class PesaformController {
       })
       .catch(err => console.log(err));
   }
-  
+
   showOne(req, res) {
     Pesaform.findOne({})
       .exec()
-      .then(doc => res.status(200).json(doc))
+      .then(doc => res.status(200).json(doc));
   }
   // Show pesaform by Id
   show(req, res) {
     const id = req.params.id;
     Pesaform.findById(id)
-      .populate("users", "name _id")
+      .populate("level_0", "name")
+      .populate("level_1", "name _id")
+      .populate("level_2", "name _id")
+      .populate("level_3", "name _id")
+      .populate("level_4", "name _id")
+      .populate("level_5", "name _id")
+      .populate("level_6", "name _id")
+      .populate("level_7", "name _id")
       .exec()
       .then(doc => res.status(200).json(doc))
       .catch(err => console.log(err));
