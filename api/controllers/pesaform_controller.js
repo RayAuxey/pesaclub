@@ -90,26 +90,22 @@ class PesaformController {
           Pesaform.findOneAndDelete({ _id: pesaformId })
             .exec()
             .then(doc => {
-              // We check if there is someone in level 7
-              // If there is we remove them in the list of users
-              // but store them for future
-              let lastUser;
-              if (doc.users.length >= 8) lastUser = doc.users.pop();
-
               // Now we create an array that will hold the new pesaforms being created
               let newPesaforms = [];
 
-              // We create a level list that will hold the users including the
-              // new user at level 0
-              let levelList = doc.users;
-              levelList.unshift(ObjectId(user._id));
-              // console.log(levelList);
-
               // Now we put new pesaforms in the newPesaforms array
+              // with an updated list moving each user higher
               for (let i = 0; i < 3; i++) {
                 newPesaforms.push(
                   new Pesaform({
-                    users: levelList
+                    level_0: ObjectId(user._id),
+                    level_1: doc.level_0,
+                    level_2: doc.level_1,
+                    level_3: doc.level_2,
+                    level_4: doc.level_3,
+                    level_5: doc.level_4,
+                    level_6: doc.level_5,
+                    level_7: doc.level_6
                   })
                 );
               }
@@ -118,59 +114,7 @@ class PesaformController {
               Pesaform.collection
                 .insert(newPesaforms)
                 .then(response => {
-                  User.find({ _id: { $in: levelList } })
-                    .select("_id pesaforms")
-                    .exec()
-                    .then(users => {
-                      let newIds = [];
-                      response.ops.forEach((pesaform, i) => {
-                        newIds.push(pesaform._id);
-                      });
-                      users.forEach((user, i) => {
-                        for (let j = 0; j < user.pesaforms.length; j++) {
-                          if (String(user._id) === String(levelList[j])) {
-                            newIds.forEach((id, index) => {
-                              user.pesaforms[j].push(id);
-                            });
-                            if (j > 0)
-                              for (
-                                let k = 0;
-                                k < user.pesaforms[j - 1].length;
-                                k++
-                              )
-                                if (
-                                  String(user.pesaforms[j - 1][k]) ==
-                                  String(doc._id)
-                                ) {
-                                  user.pesaforms[j - 1].splice(k, 1);
-                                  break;
-                                }
-                          }
-                          // console.log(user);
-                          User.findByIdAndUpdate(user._id, user)
-                            .exec()
-                            .then(newUser => {
-                              console.log(newUser);
-                            })
-                            .catch(err => console.log(err));
-                        }
-                      });
-                      res.status(200).json(response);
-                    })
-                    .catch(err => console.log(err));
-                  if (lastUser) {
-                    User.findById(lastUser)
-                      .exec()
-                      .then(user => {
-                        for (let k = 0; k < user.pesaforms[7].length; i++)
-                          if (
-                            String(user.pesaforms[7][k]) === String(doc._id)
-                          ) {
-                            user.pesaforms[7].splice(k, 1);
-                            break;
-                          }
-                      });
-                  }
+                  res.status(200).json(response);
                 })
                 .catch(err =>
                   res.status(500).json({
