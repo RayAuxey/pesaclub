@@ -99,13 +99,13 @@ class PesaformController {
                 newPesaforms.push(
                   new Pesaform({
                     level_0: ObjectId(user._id),
-                    level_1: !doc.level_0 ? new ObjectId() : doc.level_0,
-                    level_2: !doc.level_1 ? new ObjectId() : doc.level_1,
-                    level_3: !doc.level_2 ? new ObjectId() : doc.level_2,
-                    level_4: !doc.level_3 ? new ObjectId() : doc.level_3,
-                    level_5: !doc.level_4 ? new ObjectId() : doc.level_4,
-                    level_6: !doc.level_5 ? new ObjectId() : doc.level_5,
-                    level_7: !doc.level_6 ? new ObjectId() : doc.level_6
+                    level_1: doc.level_0,
+                    level_2: doc.level_1,
+                    level_3: doc.level_2,
+                    level_4: doc.level_3,
+                    level_5: doc.level_4,
+                    level_6: doc.level_5,
+                    level_7: doc.level_6
                   })
                 );
               }
