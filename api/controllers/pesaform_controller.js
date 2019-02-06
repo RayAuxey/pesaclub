@@ -35,6 +35,14 @@ class PesaformController {
 
   showOne(req, res) {
     Pesaform.findOne({})
+      .populate("level_0", "name")
+      .populate("level_1", "name")
+      .populate("level_2", "name")
+      .populate("level_3", "name")
+      .populate("level_4", "name ")
+      .populate("level_5", "name")
+      .populate("level_6", "name")
+      .populate("level_7", "name ")
       .exec()
       .then(doc => res.status(200).json(doc));
   }
