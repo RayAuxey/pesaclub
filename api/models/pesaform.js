@@ -1,47 +1,48 @@
 const mongoose = require("mongoose");
-const ObjectId = mongoose.Schema.Types.ObjectId;
+const ObjectIdType = mongoose.Schema.Types.ObjectId;
+const ObjectId = mongoose.SchemaTypes.ObjectId;
 
 const pesaformSchema = new mongoose.Schema(
   {
     level_0: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     },
     level_1: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     },
     level_2: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     },
     level_3: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     },
     level_4: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     },
     level_5: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     },
     level_6: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     },
     level_7: {
-      type: ObjectId,
+      type: ObjectIdType,
       ref: "User",
-      default: "0"
+      default: new ObjectId()
     }
   },
   {
